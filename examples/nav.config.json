@@ -1,0 +1,17 @@
+{
+  "开发指南": [
+    {
+      "name": "guide",
+      "path": "/guide",
+      "desc": "介绍"
+    }
+  ],
+  "测试示例": [
+    {
+      "name": "test",
+      "path": "/test",
+      "icon": "ios-list-box",
+      "desc": "测试示例"
+    }
+  ]
+}
