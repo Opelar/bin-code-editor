@@ -8,10 +8,10 @@
   ],
   "测试示例": [
     {
-      "name": "test",
-      "path": "/test",
+      "name": "jsonEditor",
+      "path": "/jsonEditor",
       "icon": "ios-list-box",
-      "desc": "测试示例"
+      "desc": "JsonEditor"
     }
   ]
 }

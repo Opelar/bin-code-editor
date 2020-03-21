@@ -1,4 +1,4 @@
-import Test from './test.vue'
+import Test from './code-editor.vue'
 
 /* istanbul ignore next */
 Test.install = function (Vue) {

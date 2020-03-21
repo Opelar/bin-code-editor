@@ -1,10 +1,10 @@
 // 核心插件
 import corePlugin from './plugin/core'
 // 组件
-import Test from './components/test/index'
+import CodeEditor from './components/code-editor'
 
 const components = [
-  Test
+  CodeEditor
 ]
 
 const install = function (Vue) {
@@ -21,5 +21,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  install, Test
+  install, CodeEditor
 }
