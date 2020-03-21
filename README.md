@@ -2,6 +2,10 @@
 
 基本的代码编辑器插件，现只支持json，后期扩展配置
 
+## Docs
+
+[document](https://wangbin3162.gitee.io/bin-code-editor/)
+
 ## Start
 
 Clone or download this repository

@@ -8,6 +8,11 @@
     "vue",
     "components"
   ],
+  "author": "wang bin",
+  "files": [
+    "lib",
+    "src"
+  ],
   "private": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js",
@@ -19,7 +24,6 @@
     "build:prod": "webpack --config build/webpack.umd.conf.js && webpack --config build/webpack.prod.conf.js",
     "build:component": "webpack --config build/webpack.component.js"
   },
-  "author": "wang bin",
   "license": "MIT",
   "dependencies": {
     "codemirror": "^5.52.2",
