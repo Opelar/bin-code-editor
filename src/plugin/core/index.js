@@ -8,6 +8,6 @@ export default {
     Vue.config.productionTip = false
 
     // 打印UI官网
-    log.pretty('[' + config.name + '] ' + config.version, 'https://wangbin3162.github.io/docs/bin-code-editor/', 'success')
+    log.pretty('[' + config.name + '] ' + config.version, 'https://wangbin3162.gitee.io/bin-code-editor/', '#ee0067')
   }
 }
