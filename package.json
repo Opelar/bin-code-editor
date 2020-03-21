@@ -2,6 +2,7 @@
   "name": "bin-code-editor",
   "version": "0.1.0",
   "description": "基于vue的代码编辑器插件",
+  "main": "lib/bin-code-editor.common.js",
   "keywords": [
     "bin-code-editor",
     "vue",

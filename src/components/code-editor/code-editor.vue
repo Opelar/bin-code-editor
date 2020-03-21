@@ -12,17 +12,6 @@
   import 'codemirror-formatting'
   import 'codemirror/addon/lint/lint'
   import 'codemirror/addon/lint/json-lint'
-  import 'codemirror/addon/lint/lint.css'
-  import 'codemirror/lib/codemirror.css'
-  import 'codemirror/theme/idea.css'
-  import 'codemirror/theme/eclipse.css'
-  import 'codemirror/theme/rubyblue.css'
-  import 'codemirror/theme/duotone-light.css'
-  import 'codemirror/theme/monokai.css'
-  import 'codemirror/theme/elegant.css'
-  import 'codemirror/theme/mdn-like.css'
-  import 'codemirror/theme/xq-light.css'
-  import 'codemirror/theme/neo.css'
   // eslint-disable-next-line import/no-webpack-loader-syntax
   require('script-loader!jsonlint')
 
@@ -137,3 +126,21 @@
     }
   }
 </script>
+
+<style lang="stylus">
+  @import "~codemirror/addon/lint/lint.css";
+  @import '~codemirror/lib/codemirror.css';
+  @import '~codemirror/theme/idea.css';
+  @import '~codemirror/theme/eclipse.css';
+  @import '~codemirror/theme/rubyblue.css';
+  @import '~codemirror/theme/duotone-light.css';
+  @import '~codemirror/theme/monokai.css';
+  @import '~codemirror/theme/elegant.css';
+  @import '~codemirror/theme/mdn-like.css';
+  @import '~codemirror/theme/xq-light.css';
+  @import '~codemirror/theme/neo.css';
+  @import '~codemirror/theme/dracula.css';
+  @import '~codemirror/theme/material.css';
+  @import '~codemirror/theme/material-ocean.css';
+  @import '~codemirror/theme/material-darker.css';
+</style>

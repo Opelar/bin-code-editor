@@ -47,6 +47,10 @@
            <b-radio label="mdn-like"><span>mdn-like</span></b-radio>
            <b-radio label="xq-light"><span>xq-light</span></b-radio>
            <b-radio label="neo"><span>neo</span></b-radio>
+           <b-radio label="dracula"><span>dracula</span></b-radio>
+           <b-radio label="material"><span>material</span></b-radio>
+           <b-radio label="material-ocean"><span>material-ocean</span></b-radio>
+           <b-radio label="material-darker"><span>material-darker</span></b-radio>
        </b-radio-group>
     </p>
   </div>
