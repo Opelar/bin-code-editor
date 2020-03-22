@@ -18,27 +18,13 @@
     name: 'MainHeader',
     data() {
       return {
-        components: [],
-        current: ''
+        components: []
       }
     },
     created() {
       this.getComponentsOptions()
     },
-    watch: {
-      $route: {
-        handler() {
-          setTimeout(() => {
-            this.current = ''
-          }, 300)
-        },
-        immediate: true
-      }
-    },
     methods: {
-      goTo(url) {
-        this.$util.open(url, true)
-      },
       getComponentsOptions() {
         let routes = []
         Object.keys(navConf).forEach((header) => {
@@ -62,14 +48,6 @@
           })
         }
         addComponent(routes)
-      },
-      handleComponentChange(val) {
-        if (!val || val.length === 0) {
-          return
-        }
-        if (this.$route.path !== val) {
-          this.$router.push(val)
-        }
       }
     }
   }
@@ -93,7 +71,6 @@
       height: 80px;
       .logo {
         color: #409EFF;
-        text-transform: uppercase;
         font-weight: bold;
         font-family: helvetica;
         text-align: center;

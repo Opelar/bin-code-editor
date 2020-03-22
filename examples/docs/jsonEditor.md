@@ -86,7 +86,6 @@
 | theme   | 提供若干个默认比较好看的皮肤   | String  | 可选值参考其他配置项中列出  |   idea  |
 | lint   | 是否进行lint检查   | Boolean  | 暂时只支持json  |   true  |
 | readonly   | 只读模式   | Boolean  | -  |   false  |
-| readonly   | 只读模式   | Boolean  | -  |   false  |
 
 ### Events
 
