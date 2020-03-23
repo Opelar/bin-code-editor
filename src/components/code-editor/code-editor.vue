@@ -1,7 +1,7 @@
 <template>
   <div class="bin-json-editor">
     <label>
-      <textarea ref="textarea" @blur="handleBlur"/>
+      <textarea ref="textarea"/>
     </label>
   </div>
 </template>
@@ -103,6 +103,7 @@
         this.$emit('on-change', cm.getValue())
         this.$emit('input', cm.getValue())
       })
+      this.jsonEditor.on('blur', this.handleBlur)
     },
     methods: {
       getValue() {
@@ -119,9 +120,20 @@
         // 触发校验
         this.dispatch('BFormItem', 'on-form-blur', this.value)
       },
-      blur() {
-        this.$refs.textarea.blur()
-        console.log('blur')
+      dispatch(componentName, eventName, params) {
+        let parent = this.$parent || this.$root
+        let name = parent.$options.name
+
+        while (parent && (!name || name !== componentName)) {
+          parent = parent.$parent
+
+          if (parent) {
+            name = parent.$options.name
+          }
+        }
+        if (parent) {
+          parent.$emit.apply(parent, [eventName].concat(params))
+        }
       }
     }
   }

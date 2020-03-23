@@ -1,1 +1,28 @@
-@import "base.styl";
+.bin-json-editor {
+  position: relative;
+  height: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.bin-json-editor .CodeMirror {
+  height: auto;
+  min-height: 150px;
+  max-height: 400px;
+}
+.bin-json-editor .CodeMirror-scroll {
+  min-height: 150px;
+  max-height: 400px;
+}
+
+.bin-form-item-content .bin-json-editor {
+  width: 100%;
+}
+
+.bin-form-item-error > .bin-form-item-content .bin-json-editor {
+  border-color: #f5222d;
+}
+
+.bin-json-editor .cm-s-rubyblue span.cm-string {
+  color: #F08047;
+}
