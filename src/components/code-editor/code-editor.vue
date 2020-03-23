@@ -48,6 +48,10 @@
       lineWrap: {
         type: Boolean,
         default: true
+      },
+      autoFormat: { // 进入时是否自动格式化
+        type: Boolean,
+        default: true
       }
     },
     data() {
@@ -96,8 +100,14 @@
         }
       })
       this.jsonEditor.setValue(this.value)
-      if (this.value && this.value.length > 0) {
-        this.formatCode()
+      if (this.autoFormat && this.value && this.value.length > 0) {
+        try {
+          const formatStr = JSON.stringify(JSON.parse(this.value), null, 2)
+          this.$emit('on-change', formatStr)
+          this.$emit('input', formatStr)
+        } catch (e) {
+          this.formatCode()
+        }
       }
       this.jsonEditor.on('change', cm => {
         this.$emit('on-change', cm.getValue())

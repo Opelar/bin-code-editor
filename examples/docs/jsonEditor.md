@@ -27,19 +27,21 @@
 
 ### 其他配置项
 
+`JSON.stringify(JSON.parse(jsonData),null,2)`可以将默认json进行预格式化,也可以手动触发formatCode()来格式化
+
 ::: demo
 ```html
 <template>
 <div flex="box:mean">
   <div> 
-     <b-code-editor v-model="jsonStr" :theme="theme"
+     <b-code-editor v-model="jsonStr" :theme="theme" :auto-format="false"
+        ref="editor"
       :show-number="showNumber" :readonly="readonly" :lint="lint"/>
   </div>
   <div class="pl-15">
-    <p>行号：<b-switch v-model="showNumber" /></p>
-    <p>只读：<b-switch v-model="readonly" /></p>
-    <p>检查：<b-switch v-model="lint" /></p>
-    <p>皮肤：
+     <p>行号：<b-switch v-model="showNumber" />  只读：<b-switch v-model="readonly" />  检查：<b-switch v-model="lint" /></p>
+     <p><b-button @click="$refs['editor'].formatCode()">手动触发格式化</b-button></p>
+     <p>皮肤：
         <b-radio-group v-model="theme">
            <b-radio label="idea"><span>idea</span></b-radio>
            <b-radio label="eclipse"><span>eclipse</span></b-radio>
@@ -65,7 +67,7 @@
   export default {
     data() {
       return {
-        jsonStr: jsonData,
+        jsonStr: JSON.stringify(JSON.parse(jsonData),null,2),
         showNumber: true,
         lint: true,
         readonly: false,
@@ -144,6 +146,7 @@
 | theme   | 提供若干个默认比较好看的皮肤   | String  | 可选值参考其他配置项中列出  |   idea  |
 | lint   | 是否进行lint检查   | Boolean  | 暂时只支持json  |   true  |
 | readonly   | 只读模式   | Boolean  | -  |   false  |
+| auto-format | 是否自动格式化   | Boolean  | -  |   true  |
 
 ### Events
 
