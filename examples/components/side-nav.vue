@@ -43,7 +43,7 @@
     color: #3F536E;
     background-color: #fff;
     border-right: 1px solid #dcdee2;
-    z-index: 99;
+    z-index: 10;
     &:hover {
       overflow-y: auto;
     }

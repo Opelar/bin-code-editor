@@ -64,7 +64,7 @@
     width: 100%;
     height: 80px;
     transition: all .3s;
-    z-index: 100;
+    z-index: 10;
     .header-container {
       width: 100%;
       margin: 0 auto;

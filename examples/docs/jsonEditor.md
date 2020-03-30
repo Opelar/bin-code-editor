@@ -83,6 +83,49 @@
 ```
 :::
 
+### 弹窗使用
+
+弹窗使用时有注意事项 ，窗口打开是使用  `@on-opened="$refs.editor.refresh()"`进行刷新
+
+::: demo
+```html
+<template>
+<div>
+    <b-button type="primary" @click="openJsonModal">导入json</b-button>
+    <b-modal v-model="jsonModal" title="导入Json" :z-index="50" width="750px"
+             @on-opened="$refs.editor.refresh()"  @on-ok="importJson">
+      <b-code-editor ref="editor" v-model="jsonStr"/>
+    </b-modal>
+</div>
+</template>
+<script>
+  const jsonData = `{"title":"测试json数据","children":[{"name":"子项名称", "desc":"子项说明" },{"name":"子项名称1", "desc":"子项说明1" }]}`
+
+  export default {
+    data() {
+      return {
+        jsonModal: false,
+        jsonStr:''
+      }
+    },
+    methods:{
+      openJsonModal() {
+        this.jsonStr = jsonData
+        this.jsonModal = true
+      },
+      importJson() {
+        try {
+          this.fields = JSON.parse(this.jsonStr)
+        } catch (e) {
+          this.$message({ type: 'danger', content: '输入格式不合法' })
+        }
+      }
+    } 
+  }
+</script>
+```
+:::
+
 ### 结合bin-ui from实现校验功能
 
 注意，编辑器初始化时需要计算编号等宽度，如默认是隐藏状态，可以用v-if来开启重绘，以免出现样式错位
@@ -153,10 +196,14 @@
 | auto-format | 是否自动格式化   | Boolean  | -  |   true  |
 | indent-unit | 缩进字符   | Number  | -  |   2  |
 | smart-indent | 是否自动缩进   | Boolean  | -  |  true  |
-| line-wrap | 代码折叠   | Boolean  | -  |   true  |
+| line-wrap | 代码换行   | Boolean  | -  |   true  |
+| gutter | 代码折叠   | Boolean  | -  |   true  |
 
 ### Events
 
 | 事件名      | 说明    | 返回值      |
 |---------- |-------- |---------- |
 | on-change    | 输入项改变事件   | value  |
+| formatCode   | 手动触发格式化方法   | -  |
+| refresh   | 手动刷新方法   | -  |
+| getValue   | 自行获取值   | -  |

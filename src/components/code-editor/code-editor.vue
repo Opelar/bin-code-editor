@@ -57,6 +57,10 @@
         type: Boolean,
         default: true
       },
+      gutter: {
+        type: Boolean,
+        default: true
+      },
       autoFormat: { // 进入时是否自动格式化
         type: Boolean,
         default: true
@@ -99,8 +103,9 @@
         readOnly: this.readonly,
         indentUnit: this.indentUnit, // 缩进单位，默认2
         smartIndent: this.smartIndent,
-        lineWrapping: this.lineWrap, // 代码折叠
-        foldGutter: this.lineWrap,
+        lineWrapping: this.lineWrap, // 代码换行
+        foldGutter: this.gutter,
+        autoRefresh: true, // 自动触发刷新
         // 快捷键
         extraKeys: {
           'F7': function autoFormat(cm) {
@@ -139,6 +144,9 @@
         this.$emit('on-blur', event)
         // 触发校验
         this.dispatch('BFormItem', 'on-form-blur', this.value)
+      },
+      refresh() {
+        this.jsonEditor && this.jsonEditor.refresh()
       },
       dispatch(componentName, eventName, params) {
         let parent = this.$parent || this.$root
