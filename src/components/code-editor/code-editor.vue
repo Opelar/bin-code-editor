@@ -10,6 +10,10 @@
   import CodeMirror from 'codemirror'
   import 'codemirror/mode/javascript/javascript'
   import 'codemirror-formatting'
+  import 'codemirror/addon/fold/foldcode'
+  import 'codemirror/addon/fold/foldgutter'
+  import 'codemirror/addon/fold/brace-fold'
+  import 'codemirror/addon/fold/comment-fold'
   import 'codemirror/addon/lint/lint'
   import 'codemirror/addon/lint/json-lint'
   // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -40,6 +44,10 @@
       readonly: {
         type: Boolean,
         default: false
+      },
+      indentUnit: {
+        type: Number,
+        default: 2
       },
       smartIndent: {
         type: Boolean,
@@ -85,12 +93,14 @@
       this.jsonEditor = CodeMirror.fromTextArea(this.$refs.textarea, {
         lineNumbers: this.showNumber,
         mode: this.mode,
-        gutters: ['CodeMirror-lint-markers'],
+        gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
         theme: this.theme,
         lint: this.lint,
         readOnly: this.readonly,
+        indentUnit: this.indentUnit, // 缩进单位，默认2
         smartIndent: this.smartIndent,
         lineWrapping: this.lineWrap, // 代码折叠
+        foldGutter: this.lineWrap,
         // 快捷键
         extraKeys: {
           'F7': function autoFormat(cm) {
@@ -102,7 +112,7 @@
       this.jsonEditor.setValue(this.value)
       if (this.autoFormat && this.value && this.value.length > 0) {
         try {
-          const formatStr = JSON.stringify(JSON.parse(this.value), null, 2)
+          const formatStr = JSON.stringify(JSON.parse(this.value), null, this.indentUnit)
           this.$emit('on-change', formatStr)
           this.$emit('input', formatStr)
         } catch (e) {
@@ -152,17 +162,15 @@
 <style lang="stylus">
   @import "~codemirror/addon/lint/lint.css";
   @import '~codemirror/lib/codemirror.css';
+  @import "~codemirror/addon/fold/foldgutter.css";
   @import '~codemirror/theme/idea.css';
   @import '~codemirror/theme/eclipse.css';
   @import '~codemirror/theme/rubyblue.css';
   @import '~codemirror/theme/duotone-light.css';
   @import '~codemirror/theme/monokai.css';
-  @import '~codemirror/theme/elegant.css';
   @import '~codemirror/theme/mdn-like.css';
   @import '~codemirror/theme/xq-light.css';
-  @import '~codemirror/theme/neo.css';
   @import '~codemirror/theme/dracula.css';
   @import '~codemirror/theme/material.css';
-  @import '~codemirror/theme/material-ocean.css';
   @import '~codemirror/theme/material-darker.css';
 </style>

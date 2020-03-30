@@ -8,7 +8,7 @@
 ```html
 <template>
 <div>
-  <b-code-editor v-model="jsonStr"/>
+  <b-code-editor v-model="jsonStr" :indent-unit="4" :line-wrap="false"/>
 </div>
 </template>
 <script>
@@ -39,24 +39,27 @@
       :show-number="showNumber" :readonly="readonly" :lint="lint"/>
   </div>
   <div class="pl-15">
-     <p>行号：<b-switch v-model="showNumber" />  只读：<b-switch v-model="readonly" />  检查：<b-switch v-model="lint" /></p>
+     <p>
+        行号：<b-switch v-model="showNumber" />  
+        只读：<b-switch v-model="readonly" />  
+        检查：<b-switch v-model="lint" />
+     </p>
      <p><b-button @click="$refs['editor'].formatCode()">手动触发格式化</b-button></p>
      <p>皮肤：
         <b-radio-group v-model="theme">
            <b-radio label="idea"><span>idea</span></b-radio>
            <b-radio label="eclipse"><span>eclipse</span></b-radio>
-           <b-radio label="rubyblue"><span>rubyblue</span></b-radio>
            <b-radio label="duotone-light"><span>duotone-light</span></b-radio>
-           <b-radio label="monokai"><span>monokai</span></b-radio>
-           <b-radio label="elegant"><span>elegant</span></b-radio>
            <b-radio label="mdn-like"><span>mdn-like</span></b-radio>
            <b-radio label="xq-light"><span>xq-light</span></b-radio>
-           <b-radio label="neo"><span>neo</span></b-radio>
+        </b-radio-group>
+        <b-radio-group v-model="theme">
            <b-radio label="dracula"><span>dracula</span></b-radio>
+           <b-radio label="rubyblue"><span>rubyblue</span></b-radio>
+           <b-radio label="monokai"><span>monokai</span></b-radio>
            <b-radio label="material"><span>material</span></b-radio>
-           <b-radio label="material-ocean"><span>material-ocean</span></b-radio>
            <b-radio label="material-darker"><span>material-darker</span></b-radio>
-       </b-radio-group>
+        </b-radio-group>
     </p>
   </div>
 </div>
@@ -71,6 +74,7 @@
         showNumber: true,
         lint: true,
         readonly: false,
+        wrap: true,
         theme: 'idea'
       }
     }
@@ -147,6 +151,9 @@
 | lint   | 是否进行lint检查   | Boolean  | 暂时只支持json  |   true  |
 | readonly   | 只读模式   | Boolean  | -  |   false  |
 | auto-format | 是否自动格式化   | Boolean  | -  |   true  |
+| indent-unit | 缩进字符   | Number  | -  |   2  |
+| smart-indent | 是否自动缩进   | Boolean  | -  |  true  |
+| line-wrap | 代码折叠   | Boolean  | -  |   true  |
 
 ### Events
 
