@@ -1,5 +1,5 @@
 <template>
-  <div class="bin-json-editor">
+  <div class="bin-json-editor" :style="style">
     <label>
       <textarea ref="textarea"/>
     </label>
@@ -64,11 +64,21 @@
       autoFormat: { // 进入时是否自动格式化
         type: Boolean,
         default: true
+      },
+      height: {
+        type: String
       }
     },
     data() {
       return {
         jsonEditor: false
+      }
+    },
+    computed: {
+      style() {
+        return {
+          height: this.height ? this.height : '300px'
+        }
       }
     },
     watch: {
@@ -129,8 +139,12 @@
         this.$emit('input', cm.getValue())
       })
       this.jsonEditor.on('blur', this.handleBlur)
+      this.$emit('on-init', this.jsonEditor)
     },
     methods: {
+      getEditor() {
+        return this.jsonEditor
+      },
       getValue() {
         return this.jsonEditor.getValue()
       },

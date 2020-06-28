@@ -8,7 +8,7 @@
 ```html
 <template>
 <div>
-  <b-code-editor v-model="jsonStr" :indent-unit="4" :line-wrap="false"/>
+  <b-code-editor v-model="jsonStr" :indent-unit="4" height="auto"/>
 </div>
 </template>
 <script>
@@ -198,6 +198,7 @@
 | smart-indent | 是否自动缩进   | Boolean  | -  |  true  |
 | line-wrap | 代码换行   | Boolean  | -  |   true  |
 | gutter | 代码折叠   | Boolean  | -  |   true  |
+| height    | 默认编辑器高度  | String  |  —   |   300px  |
 
 ### Events
 
