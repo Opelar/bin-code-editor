@@ -2,7 +2,7 @@
 
 基本的代码编辑器插件，现只支持json，后期扩展配置
 
-已新视线重构编辑器，采用ace editor为基础依赖构建，新版本连接[bin-ace-editor](https://wangbin3162.gitee.io/bin-ace-editor/)
+已重构编辑器，采用ace editor为基础依赖构建，新版本连接[bin-ace-editor](https://wangbin3162.gitee.io/bin-ace-editor/)
 
 ## Docs
 
